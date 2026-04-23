@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any, Optional
 from omegaconf import MISSING, OmegaConf
 import hydra
@@ -281,7 +281,7 @@ class Config:
     # These fields are required and will be provided by Hydra’s config groups.
     dataset: DatasetConfig = MISSING
     model: ModelConfig = MISSING
-    train: TrainConfig = TrainConfig()
+    train: TrainConfig = field(default_factory=TrainConfig)
 
 #########################
 # Register with ConfigStore
